@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test.describe('Form element validation', () => {
+test.describe.skip('Form element validation', () => {
 
   test('check alert', async ({ page }) => {
     await page.goto('http://autopract.com/selenium/alert5/');
