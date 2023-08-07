@@ -10,12 +10,12 @@ test.use({ storageState: { cookies: [], origins: [] } });
 test.describe.configure({ mode: 'serial' });
 
 test.beforeEach( async ({page}) => {
-    await page.goto('https://demoqa.com/login');
-    loginPage = new LoginPage(page);
-    // await hooks.beforeEach(page, 'profile');
+    // await page.goto('https://demoqa.com/login');
+    // loginPage = new LoginPage(page);
+    loginPage = await hooks.beforeEach(page, LoginPage, 'login');
 });
 
-test.describe.skip('Book Store - Login', () => {
+test.describe('Book Store - Login', () => {
     test('successfull login', async () => {
         await loginPage.doLogin(userName, password);
         await loginPage.checkLoggedIn();

@@ -1,6 +1,6 @@
 import { expect, Locator, Page } from "@playwright/test";
 
-export class ProfilePage{
+class ProfilePage{
     readonly page: Page;
     readonly notLoggedInLabel: Locator;
 

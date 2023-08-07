@@ -5,7 +5,13 @@ import hooks from '../../utils/hooks';
 let profilePage: ProfilePage;
 
 test.beforeEach(async({page}) => {
-    await page.goto('https://demoqa.com/profile');
-    // await hooks.beforeEach(page, 'profile');
-    profilePage = new ProfilePage(page);
+     profilePage = await hooks.beforeEach(page, ProfilePage ,'profile');
+      // await page.goto('https://demoqa.com/profile');
+    // profilePage = new ProfilePage(page);
+});
+
+test.describe('Profile - Stored Auth', () => {
+    test('Check login', async ( { page }) => {
+        await profilePage.checkLoggedIn();
+    });
 });
