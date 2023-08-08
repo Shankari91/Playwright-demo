@@ -1,11 +1,10 @@
 export function buildUrl(page: string, params?: Record<any, any>) {
-    // const uiPath = uiPages[page];
+    const uiPath = page;
       
     const qParams = new URLSearchParams(params);
-    const url = page;
-    // const url = params
-    // ? `${uiPath.concat('?')}${qParams.toString()}`
-    // : uiPath;
+    const url = params
+    ? `${uiPath.concat('?')}${qParams.toString()}`
+    : uiPath;
   
     /**
       * page  bookStore
