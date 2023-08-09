@@ -1,13 +1,14 @@
 import { test } from '@playwright/test';
 import LoginPage from '../pages/login-page';
 import hooks from '../../utils/hooks';
+import pages from '../../utils/pages';
 
 let loginPage: LoginPage;
-const userName = 'shankaris';
-const password = 'Hello@123';
+const userName = process.env.USERNAME!;
+const password = process.env.PASSWORD!;
 
 test.beforeEach( async ({page}) => {
-    loginPage = await hooks.beforeEach(page, LoginPage, 'login');
+    loginPage = await hooks.beforeEach(page, LoginPage, pages.login);
 });
 
 test.describe('Book Store - Login', () => {
